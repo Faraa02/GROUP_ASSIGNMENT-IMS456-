@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Virtual&display=swap');
+        
+        body {
+            font-family: 'Virtual', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e62861 10%, #1070ff 100%);
+            color: #333;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        main {
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .menu h1 {
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-size: 3em; /* Increased font size */
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            justify-items: center; /* Center items */
+        }
+
+        .menu-item {
+            background-color: #fff;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px); /* Increased lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow */
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow on images */
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.08); /* Slightly larger scale on hover */
+        }
+
+        /* Modal CSS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-content img {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .modal-caption h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .modal-caption p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="menu">
+        <h1>SPECIAL DAY !!</h1>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="image/9.jpg" alt="Pepsi" class="menu-img">
+            </div>
+            <div class="menu-item">
+                <img src="image/11.jpg" alt="7 - Up" class="menu-img">
+            </div>
+            <div class="menu-item">
+                <img src="image/10.jpg" alt="Mineral Water" class="menu-img">
+            </div>
+            <div class="menu-item">
+                <img src="image/12.jpg" alt="Ice Green Tea" class="menu-img">
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img id="modal-img">
+        <div id="modal-caption" class="modal-caption"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+            document.body.style.transition = "opacity 0.5s";
+            document.body.style.opacity = 1;
+        }, 100);
+
+        // Modal functionality
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-img");
+        const modalCaption = document.getElementById("modal-caption");
+        const images = document.querySelectorAll(".menu-img");
+        const closeBtn = document.querySelector(".close");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                const menuItem = img.closest('.menu-item');
+                modalCaption.innerHTML = `<h3>${menuItem.querySelector('h3').textContent}</h3><p>${menuItem.querySelector('.menu-price').textContent}</p>`;
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

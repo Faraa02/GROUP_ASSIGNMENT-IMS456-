@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="payment">
+            <h1>Payment</h1>
+            <div class="payment-details">
+                <h2>Total Amount: RM<span id="totalAmount">0.00</span></h2>
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardExpiry">Expiry Date</label>
+                        <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardCVV">CVV</label>
+                        <input type="text" id="cardCVV" name="cardCVV" required>
+                    </div>
+                    <button type="submit" class="submit-payment">Submit Payment</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.transition = "opacity 0.5s";
+                document.body.style.opacity = 1;
+            }, 100);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const totalAmount = urlParams.get('total');
+            document.getElementById('totalAmount').textContent = totalAmount;
+
+            const paymentForm = document.getElementById('paymentForm');
+            paymentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                simulatePaymentSubmission();
+            });
+
+            function simulatePaymentSubmission() {
+                // Here you would typically send payment details to a server for processing
+                // For simulation purposes, we'll just show an alert
+                alert('Payment Submitted!'); // Replace with actual payment processing logic
+                paymentForm.reset(); // Reset the form after submission
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7b733 50%, #fc4a1a 50%);
+            color: #333;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        header {
+            background-color: #f8f9fa; /* Light background */
+            padding: 1em 2em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 1em;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        header nav ul li a:hover {
+            color: #fc4a1a; /* Orange accent */
+            background-color: #f8f9fa; /* Light background */
+        }
+
+        main {
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .payment h1 {
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-size: 2em;
+            color: #5c420c;
+        }
+
+        .payment-details {
+            background-color: #fff;
+            padding: 2em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .payment-details h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 1em;
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5em;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-payment {
+            padding: 0.5em 2em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #fc4a1a; /* Orange button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-payment:hover {
+            background-color: #ff6f3d; /* Lighter orange on hover */
+        }
+    </style>
+</body>
+</html>

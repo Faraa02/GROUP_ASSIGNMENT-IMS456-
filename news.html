@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <!-- for icons  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- for swiper slider  -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- fancy box  -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f7f7f7;
+        }
+        .sec-title {
+            position: relative;
+        }
+        .sec-title-shape {
+            margin: 0 auto;
+        }
+        .sec-title-shape img {
+            max-width: 100%;
+        }
+        .h2-title {
+            color: #ff6347;
+        }
+        .h2-title span {
+            color: #1e90ff;
+        }
+        .sec-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .sec-btn:hover {
+            background-color: #1e90ff;
+        }
+        .blog-box {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .blog-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .blog-text {
+            padding: 20px;
+        }
+        .blog-date {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .h4-title {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+        .h4-title:hover {
+            color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern bg-light repeat-img" style="background-image: url(assets/images/blog-pattern-bg.png);">
+        <section class="blog-sec section" id="blog">
+            <div class="sec-wp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sec-title text-center mb-5">
+                                <p class="sec-sub-title mb-3">Our News</p>
+                                <h2 class="h2-title">Fresh Updated</h2>
+                                <div class="sec-title-shape mb-4">
+                                    <img src="assets/images/title-shape.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="blog-box">
+                                <div class="blog-img back-img" style="background-image: url(image/news/news\ 1.jpg);"></div>
+                                <div class="blog-text">
+                                    <p class="blog-date">September.15.2023</p>
+                                    <a href="#" class="h4-title"></a>
+                                        <p>We're excited to share that at Southern Soul Nashville Fried Chicken, we're committed to using only the
+                                            finest ingredients. Each piece of chicken is marinated, seasoned, and cooked to perfection. And now,
+                                            we're introducing a variety of new dipping sauces to complement your meal! With unlimited options,
+                                            there's something for everyone to love</p>
+                                    <a href="#" class="sec-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="blog-box">
+                                <div class="blog-img back-img" style="background-image: url(image/news/news\ 2.jpg);"></div>
+                                <div class="blog-text">
+                                    <p class="blog-date">January.12.2024</p>
+                                    <a href="#" class="h4-title"></a>
+                                    <p>Our secret recipe just got even better! Introducing our new spicy fried chicken, perfect for those who
+                                        love a little extra kick. Stop by Southern Soul Nashville Fried Chicken and spice up your meal with our
+                                        latest mouthwatering creation</p>
+                                    <a href="#" class="sec-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="blog-box">
+                                <div class="blog-img back-img" style="background-image: url(image/news/news\ 3.jpg);"></div>
+                                <div class="blog-text">
+                                    <p class="blog-date">May.25.2024</p>
+                                    <a href="#" class="h4-title"></a>
+                                    <p>It's not easy to make a choice, so why not try them all? Enjoy 30% off on all flavors of our delicious fried
+                                        chicken for a limited time! 😱🛵 Search 'Southern Soul' on Grab or click on our bio to place your order.
+                                        Don't miss out on this amazing deal and experience the best of Nashville flavors delivered straight to your
+                                        door."</p>
+                                    <a href="#" class="sec-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- jquery  -->
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <!-- fontawesome  -->
+    <script src="assets/js/font-awesome.min.js"></script>
+    <!-- swiper slider  -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- mixitup -- filter  -->
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <!-- fancy box  -->
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- parallax  -->
+    <script src="assets/js/parallax.min.js"></script>
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- scroll trigger  -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- scroll to plugin  -->
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <!-- smooth scroll  -->
+    <script src="assets/js/smooth-scroll.js"></script>
+    <!-- custom js  -->
+    <script src="main.js"></script>
+    <script>
+        // Smooth scroll with GSAP
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // Smooth scroll to the blog section on page load
+        gsap.to(window, {
+            duration: 1.5,
+            scrollTo: {
+                y: "#blog",
+                offsetY: 70
+            },
+            ease: "power2.inOut"
+        });
+
+        // Animation on scroll
+        gsap.from('.blog-box', {
+            scrollTrigger: {
+                trigger: '.blog-box',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power2.out'
+        });
+    </script>
+</body>
+</html>

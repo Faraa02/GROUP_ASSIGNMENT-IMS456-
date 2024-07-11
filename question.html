@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <!-- for icons  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- for swiper slider  -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- fancy box  -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .faq-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .faq-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <section class="faq-sec section-repeat-img" style="background-image: url(assets/images/faq-bg.png);">
+        <div class="sec-wp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sec-title text-center mb-5">
+                            <p class="sec-sub-title mb-3">faqs</p>
+                            <h2 class="h2-title">Frequently <span>asked questions</span></h2>
+                            <div class="sec-title-shape mb-4">
+                                <img src="assets/images/title-shape.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-row">
+                    <div class="faq-box">
+                        <h4 class="h4-title">What are the login hours?</h4>
+                        <p>Our restaurant operates from 11 AM to 11 PM daily. Whether you’re dining in or ordering
+                            online, you can enjoy Southern Soul Nashville Fried Chicken during these hours. We look
+                            forward to serving you.</p>
+                    </div>
+                    <div class="faq-box">
+                        <h4 class="h4-title">How Do I Get My Refund?</h4>
+                        <p>If you’re not satisfied with your order or encounter any issues, please contact our customer
+                            service within 24 hours. We will assist you with the refund process promptly and ensure your
+                            satisfaction.</p>
+                    </div>
+                    <div class="faq-box">
+                        <h4 class="h4-title">How long it will take food to arrive?</h4>
+                        <p>Delivery times typically range from 30 to 45 minutes, depending on your location and order
+                            volume. We strive to ensure that your food arrives hot and fresh every time.</p>
+                    </div>
+                    <div class="faq-box">
+                        <h4 class="h4-title">Does your restaurant has both veg and non veg?</h4>
+                        <p>Yes, Southern Soul Nashville Fried Chicken offers a variety of both vegetarian and nonvegetarian options. We cater to diverse tastes and dietary preferences to ensure everyone enjoys
+                            our delicious meals.</p>
+                    </div>
+                    <div class="faq-box">
+                        <h4 class="h4-title">How Much Does Food Delivery Cost?</h4>
+                        <p>Delivery fees vary based on your location and order size. Check our delivery partners for the
+                            most accurate pricing. We aim to keep our delivery costs affordable for our valued customers.</p>
+                    </div>
+                    <div class="faq-box">
+                        <h4 class="h4-title">Who is eligible for pro membership?</h4>
+                        <p>Our Pro Membership is open to all customers who want to enjoy exclusive benefits, including
+                            special discounts, priority service, and members-only promotions. Sign up today to elevate your
+                            Southern Soul experience!. </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- jquery  -->
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <!-- fontawesome  -->
+    <script src="assets/js/font-awesome.min.js"></script>
+    <!-- swiper slider  -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- mixitup -- filter  -->
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <!-- fancy box  -->
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- parallax  -->
+    <script src="assets/js/parallax.min.js"></script>
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- scroll trigger  -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- scroll to plugin  -->
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <!-- smooth scroll  -->
+    <script src="assets/js/smooth-scroll.js"></script>
+    <!-- custom js  -->
+    <script>
+        $(document).ready(function() {
+            // Add 'show' class to each faq-box for smooth entrance
+            $(".faq-box").each(function(index) {
+                var delay = index * 200; // Adjust delay time as needed
+                $(this).delay(delay).queue(function(next) {
+                    $(this).addClass('show');
+                    next();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

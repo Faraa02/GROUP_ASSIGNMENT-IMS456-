@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC Menu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+        .header {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e4002b;
+        }
+        .menu-bar {
+            background-color: #fff;
+            padding: 10px 20px;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .menu-bar a {
+            color: #000;
+            text-decoration: none;
+            margin: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu-bar a:hover,
+        .menu-bar a.active {
+            background-color: #dd8696;
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content h2 {
+            color: #1b18e6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(25% - 20px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product-details {
+            padding: 15px;
+            text-align: center;
+        }
+        .product-details h3 {
+            color: #000;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product-details p {
+            color: #e4002b;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .product-details .new {
+            background-color: #e4002b;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="kfc-logo.png" alt="KFC Logo">
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Promotions</a>
+            <a href="#">Menu</a>
+            <a href="#">Rewards</a>
+            <a href="#">Log In</a>
+            <a href="#">Order Now</a>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <a href="#" class="active">Limited Time Only</a>
+        <a href="#">Egg Tarts</a>
+        <a href="#">Family Buckets</a>
+        <a href="#">Box Meals</a>
+        <a href="#">Chicken</a>
+        <a href="#">Burgers & Twister</a>
+        <a href="#">Nuggets & Tenders</a>
+    </div>
+    <div class="content">
+        <h2>LIMITED TIME ONLY</h2>
+        <div class="products">
+            <div class="product">
+                <img src="product1.jpg" alt="6-pc Bucket Semua">
+                <div class="product-details">
+                    <span class="new">New!</span>
+                    <h3>6-pc Bucket Semua</h3>
+                    <p>RM52.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="10-pc Bucket Semua">
+                <div class="product-details">
+                    <span class="new">New!</span>
+                    <h3>10-pc Bucket Semua</h3>
+                    <p>RM77.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Zinger Spicy BBQ Box Set">
+                <div class="product-details">
+                    <span class="new">New!</span>
+                    <h3>Zinger Spicy BBQ Box Set</h3>
+                    <p>RM22.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="product4.jpg" alt="Zinger Cheezy Box Set">
+                <div class="product-details">
+                    <span class="new">New!</span>
+                    <h3>Zinger Cheezy Box Set</h3>
+                    <p>RM22.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

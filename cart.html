@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h1>Your Shopping Cart</h1>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="images/Chicken Tender/1.jpg" alt="Classic Chicken Tenders (3pcs)" class="cart-img">
+                    <div class="cart-item-details">
+                        <h3>Classic Chicken Tenders (3pcs)</h3>
+                        <p class="cart-price">RM5.59</p>
+                        <div class="cart-quantity">
+                            <label for="quantity1">Quantity:</label>
+                            <input type="number" id="quantity1" name="quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+                <div class="cart-item">
+                    <img src="images/Chicken Tender/2.jpg" alt="Classic Chicken Tenders (6pcs)" class="cart-img">
+                    <div class="cart-item-details">
+                        <h3>Classic Chicken Tenders (6pcs)</h3>
+                        <p class="cart-price">RM8.49</p>
+                        <div class="cart-quantity">
+                            <label for="quantity2">Quantity:</label>
+                            <input type="number" id="quantity2" name="quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+                <div class="cart-item">
+                    <img src="images/Chicken Tender/3.jpg" alt="Classic Chicken Tenders (12Pcs)" class="cart-img">
+                    <div class="cart-item-details">
+                        <h3>Classic Chicken Tenders (12Pcs)</h3>
+                        <p class="cart-price">RM14.49</p>
+                        <div class="cart-quantity">
+                            <label for="quantity3">Quantity:</label>
+                            <input type="number" id="quantity3" name="quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    <button class="remove-item">Remove</button>
+                </div>
+                <!-- More cart items can be added here -->
+            </div>
+            <div class="cart-total">
+                <h2>Total: RM0.00</h2>
+                <form action="payment.html" method="GET">
+                    <input type="hidden" id="totalInput" name="total" value="0">
+                    <button type="submit" class="checkout">Proceed to Checkout</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.transition = "opacity 0.5s";
+                document.body.style.opacity = 1;
+            }, 100);
+
+            const removeButtons = document.querySelectorAll(".remove-item");
+            removeButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const cartItem = button.closest('.cart-item');
+                    cartItem.remove();
+                    updateTotal();
+                });
+            });
+
+            const quantityInputs = document.querySelectorAll(".cart-quantity input");
+            quantityInputs.forEach(input => {
+                input.addEventListener("change", updateTotal);
+            });
+
+            function updateTotal() {
+                const cartItems = document.querySelectorAll(".cart-item");
+                let total = 0;
+                cartItems.forEach(item => {
+                    const priceElement = item.querySelector(".cart-price");
+                    const price = parseFloat(priceElement.textContent.replace('RM', ''));
+                    const quantity = item.querySelector("input").value;
+                    total += price * quantity;
+                });
+                document.querySelector(".cart-total h2").textContent = `Total: RM${total.toFixed(2)}`;
+                document.getElementById("totalInput").value = total.toFixed(2);
+            }
+
+            document.querySelector(".checkout").addEventListener("click", () => {
+                const cartItems = document.querySelectorAll(".cart-item");
+                let total = 0;
+                cartItems.forEach(item => {
+                    const priceElement = item.querySelector(".cart-price");
+                    const price = parseFloat(priceElement.textContent.replace('RM', ''));
+                    const quantity = item.querySelector("input").value;
+                    total += price * quantity;
+                });
+                alert(`Proceeding to checkout. Total amount: RM${total.toFixed(2)}`);
+                // Here you can redirect to the checkout page or perform any other action
+            });
+
+            // Initial total calculation
+            updateTotal();
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffeb32 50%, #f36523 50%);
+            color: #333;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 1em 2em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 1em;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        header nav ul li a:hover {
+            color: #ff9900;
+            background-color: #f0f0f0;
+        }
+
+        main {
+            padding: 2em;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cart h1 {
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-size: 2em;
+            color: #5c420c;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .cart-item img {
+            max-width: 100px;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+            padding: 0 1em;
+        }
+
+        .cart-item h3 {
+            margin: 0.5em 0;
+            font-size: 1.2em;
+        }
+
+        .cart-price {
+            font-size: 1.1em;
+            color: #d80d0d;
+            font-weight: bold;
+        }
+
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-quantity label {
+            margin-right: 0.5em;
+        }
+
+        .cart-quantity input {
+            width: 50px;
+            padding: 0.2em;
+            text-align: center;
+        }
+
+        .remove-item {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #d80d0d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .remove-item:hover {
+            background-color: #a00b0b;
+        }
+
+        .cart-total {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .cart-total h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .checkout {
+            margin-top: 1em;
+            padding: 0.5em 2em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff9900;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout:hover {
+            background-color: #cc7a00;
+        }
+    </style>
+</body>
+</html>

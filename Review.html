@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <!-- for icons  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- for swiper slider  -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- fancy box  -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sec-title {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .sec-title span {
+            color: #ffffff;
+        }
+
+        .sec-sub-title {
+            color: #131313;
+        }
+
+        .testimonials {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f09713 10%, #f30f0f 100%);
+            color: #fff;
+        }
+
+        .testimonials-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonials-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonials-box-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+        .star-rating {
+            display: flex;
+        }
+
+        .star-rating span {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffc107 0%, #ffc107 var(--rating), #e4e5e9 var(--rating), #e4e5e9 100%);
+            width: 100px;
+            height: 20px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .testimonials-box-text h3 {
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .testimonials-box-text p {
+            color: #666;
+        }
+
+        .testimonials-img img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        .sec-title-shape img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonials section">
+        <div class="sec-wp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sec-title text-center mb-5">
+                            <p class="sec-sub-title mb-3">What they say</p>
+                            <h2 class="h2-title">What our customers <span>say about us</span></h2>
+                            <div class="sec-title-shape mb-4">
+                                <img src="assets/images/title-shape.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="testimonials-img">
+                            <img src="assets/images/testimonial-img.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="testimonials-box">
+                                    <div class="testimonial-box-top">
+                                        <div class="testimonials-box-img back-img"
+                                            style="background-image: url(image/review/khairulaming.jpg);">
+                                        </div>
+                                        <div class="star-rating-wp">
+                                            <div class="star-rating">
+                                                <span class="star-rating__fill" style="--rating: 85%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonials-box-text">
+                                        <h3 class="h3-title">Khairul Aming</h3>
+                                        <p>Absolutely the best fried chicken I've ever had! The flavor is incredible, and the chicken is
+                                            always perfectly crispy and juicy. Southern Soul Nashville Fried Chicken has become my go-to spot for
+                                            comfort food. Highly recommend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="testimonials-box">
+                                    <div class="testimonial-box-top">
+                                        <div class="testimonials-box-img back-img"
+                                            style="background-image: url(image/review/Chef-Zam-2-1140x853.jpg);">
+                                        </div>
+                                        <div class="star-rating-wp">
+                                            <div class="star-rating">
+                                                <span class="star-rating__fill" style="--rating: 80%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonials-box-text">
+                                        <h3 class="h3-title">Chef Zam</h3>
+                                        <p>From the first bite, I knew I found my new favorite restaurant. The spices are spot on, and
+                                            the variety of dipping sauces is a great touch. The staff is always friendly and welcoming. Southern Soul
+                                            Nashville Fried Chicken never disappoints.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="testimonials-box">
+                                    <div class="testimonial-box-top">
+                                        <div class="testimonials-box-img back-img"
+                                            style="background-image: url(image/review/chef4.jfif);">
+                                        </div>
+                                        <div class="star-rating-wp">
+                                            <div class="star-rating">
+                                                <span class="star-rating__fill" style="--rating: 89%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonials-box-text">
+                                        <h3 class="h3-title">Fazley Yaacob</h3>
+                                        <p>I can't get enough of their spicy fried chicken! It's the perfect blend of heat and flavor. Plus,
+                                            their commitment to quality ingredients really shines through in every dish. Southern Soul is a must-visit
+                                            for any fried chicken lover.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="testimonials-box">
+                                    <div class="testimonial-box-top">
+                                        <div class="testimonials-box-img back-img"
+                                            style="background-image: url(image/review/chef-sherson.jpg);">
+                                        </div>
+                                        <div class="star-rating-wp">
+                                            <div class="star-rating">
+                                                <span class="star-rating__fill" style="--rating: 100%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonials-box-text">
+                                        <h3 class="h3-title">Sherson Lian</h3>
+                                        <p>Southern Soul Nashville Fried Chicken is a gem! The portions are generous, the chicken is
+                                            always cooked to perfection, and the atmosphere is warm and inviting. Whether dining in or taking out, I
+                                            always have a great experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jquery  -->
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <!-- fontawesome  -->
+    <script src="assets/js/font-awesome.min.js"></script>
+    <!-- swiper slider  -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- mixitup -- filter  -->
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <!-- fancy box  -->
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <!-- parallax  -->
+    <script src="assets/js/parallax.min.js"></script>
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- scroll trigger  -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- scroll to plugin  -->
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <!-- smooth scroll  -->
+    <script src="assets/js/smooth-scroll.js"></script>
+    <!-- custom js  -->
+    <script src="main.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Smooth scroll with GSAP
+        gsap.utils.toArray('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: {
+                        y: this.getAttribute('href'),
+                        offsetY: 70
+                    },
+                    ease: "power2.inOut"
+                });
+            });
+        });
+
+        // Animation on scroll
+        gsap.from('.testimonials-box', {
+            scrollTrigger: {
+                trigger: '.testimonials-box',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.3
+        });
+    </script>
+</body>
+</html>
